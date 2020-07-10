@@ -92,7 +92,7 @@ public class TodoRepository {
 
 	public Task Get(int id) throws Exception {
 		Task item = null;
-		String sql = String.format("SELECT * FROM TODOS WHERE ID = %d", id);
+		String sql = String.format("SELECT * FROM TODOS WHERE ID = %d and parentid = 0", id);
 		Connection con = CreateConnection();
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);

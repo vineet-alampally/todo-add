@@ -31,9 +31,9 @@ public class TodoManager {
     	return repo.Insert(todo);
     }
      
-    public void updateTodo(Integer id, Task todo){
+    public void updateTodo(Integer id, Task item) throws Exception{
     	TodoRepository repo = new TodoRepository();
-    	
+    	repo.Update(item);
     }
     
     public boolean addSubTask(Integer id, ToDoItem sub){

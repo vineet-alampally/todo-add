@@ -82,8 +82,16 @@ public class TodoController {
  
     @PUT
     @Path("/modify/{id}")
-    public void modify(@PathParam("id") Integer id, Task item) {
-        mgr.updateTodo(id, item);
+    public Response modify(@PathParam("id") Integer id, Task item) {
+    	try 
+    	{    		
+    		mgr.updateTodo(id, item);
+    		return Response.ok(true).build();
+    	}
+    	catch(Exception ex)
+    	{
+    		return Response.serverError().build();
+    	}
     }
      
     @DELETE
